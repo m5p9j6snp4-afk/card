@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carousell 交易保障系統</title>
+    <style>
+        body { background-color: #f7f8fa; color: #333; font-family: Arial, sans-serif; margin: 0; padding: 20px; text-align: center; }
+        .header { background-color: #ff2636; color: white; padding: 15px; font-weight: bold; font-size: 1.2rem; }
+        .card { background: white; max-width: 450px; margin: 30px auto; padding: 25px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); text-align: left; }
+        .price { font-size: 1.8rem; color: #ff2636; font-weight: bold; margin: 10px 0; }
+        .btn { background-color: #ff2636; color: white; border: none; padding: 12px; width: 100%; font-size: 1.1rem; font-weight: bold; border-radius: 4px; cursor: pointer; margin-top: 20px; width: 100%; }
+        .btn:hover { background-color: #d61f2c; }
+        
+        /* 彈出層（揭曉真相的防騙教育） */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 999; justify-content: center; align-items: center; padding: 20px; box-sizing: border-box; }
+        .edu-container { max-width: 550px; background: white; color: #721c24; padding: 30px; border-radius: 15px; text-align: left; border-top: 10px solid #dc3545; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+        h2 { color: #dc3545; margin-top: 0; text-align: center; }
+        ul { line-height: 1.8; color: #555; }
+    </style>
+</head>
+<body>
+
+    <!-- 這是原本的假客服介面 -->
+    <div id="main-content">
+        <div class="header">Carousell 旋轉拍賣 (模擬演練)</div>
+        <div class="card">
+            <span style="color: #28a745; font-weight: bold;">● 買家已完成付款</span>
+            <h2>訂單編號：#CR8829103</h2>
+            <p>買家 **"hk_buyer99"** 已將貨款存入平台託管賬戶。</p>
+            <hr style="border: 0; border-top: 1px solid #eee;">
+            <p>閣下的保障應收金額：</p>
+            <div class="price">$1,200.00 HKD</div>
+            <p style="font-size: 0.85rem; color: #666; line-height: 1.4;">⚠️ 提示：為配合香港反洗黑錢條例，首次收款之賣家必須點擊下方按鈕，關聯並驗證您的常用信用卡片以進行「安全實名認證」，認證成功後貨款將即時發放到您的賬戶。</p>
+            <button id="recvBtn" class="btn">立即驗證卡片並領取貨款 ➡️</button>
+        </div>
+    </div>
+
+    <!-- 點擊按鈕後，原地彈出的防騙教育層 -->
+    <div id="eduModal" class="modal">
+        <div class="edu-container">
+            <h2>🛑 慢著！你剛剛差點被騙了！</h2>
+            <p style="font-weight: bold; color: #333; text-align: center; font-size: 1.1rem;">這是一次 Rene 製作的【防詐騙校園演練】</p>
+            <hr style="border: 0; border-top: 1px solid #eee;">
+            <p style="color: #444; line-height: 1.5;">如果這是一個真正的詐騙網站，當你點擊「驗證卡片」並輸入資料時，你的信用卡號碼、有效日期、CVV 安全碼就已經在後台被騙徒一覽無遺，並會被瞬間在海外網站進行非法盜刷！</p>
+            
+            <p style="font-weight: bold; color: #dc3545; margin-bottom: 5px;">💡 Rene 的防騙小字典（二手平台假客服）：</p>
+            <ul>
+                <li><strong>賣家收錢不需要認證卡片：</strong> 在真實的二手交易平台（如 Carousell）收款，貨款會直接進入平台錢包或由買家當面過數，<strong>絕對不會</strong>要求賣家輸入信用卡資料去「驗證」才能收錢。</li>
+                <li><strong>小心不明短連結：</strong> 騙徒通常會用 WhatsApp、Signal 或平台私訊發送外部分型似官方的假網址。收到任何網址，請先觀察是否為官方域名。</li>
+            </ul>
+            <hr style="border: 0; border-top: 1px solid #eee;">
+            <p style="text-align: center; font-weight: bold; color: #28a745; margin-bottom: 0;">「拒絕誘惑，遠離詐騙！」謝謝你參與測試。</p>
+        </div>
+    </div>
+
+    <script>
+        // 點擊按鈕，直接顯示教育彈窗
+        document.getElementById("recvBtn").addEventListener("click", function() {
+            document.getElementById("eduModal").style.display = "flex";
+        });
+    </script>
+</body>
+</html>
